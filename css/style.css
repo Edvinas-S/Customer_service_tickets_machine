@@ -1,0 +1,81 @@
+body,
+body * {
+margin: 0;
+padding: 0;
+vertical-align: top;
+box-sizing: border-box;
+font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+    .bodySelect {
+        background-image: url(../img/bacground.jpg);
+    }
+        .mainSelect {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+            .h1Select {
+                width: 100%;
+                text-transform: uppercase;
+                font-family: verdana;
+                color: #f5f5f5;
+                text-shadow: 1px 1px 1px #919191,
+                1px 2px 1px #919191,
+                1px 3px 1px #919191,
+                1px 4px 1px #919191,
+                1px 5px 1px #919191,
+                1px 6px 1px #919191,
+                1px 7px 1px #919191,
+                1px 8px 1px #919191,
+                1px 9px 1px #919191,
+                1px 10px 1px #919191,
+                1px 18px 6px rgba(16,16,16,0.4),
+                1px 22px 10px rgba(16,16,16,0.2),
+                1px 25px 35px rgba(16,16,16,0.2),
+                1px 30px 60px rgba(16,16,16,0.4);
+            }
+            .h3Select {
+                text-transform: uppercase;
+                font-family: verdana;
+                color: #f5f5f5;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            .selectSpec {
+                width: 300px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%);
+            }
+                .selectSpec > form {
+                    margin-bottom: 10px;
+                }
+                .selectSpec > form > label {
+                    font-size: 25px;
+                    line-height: 30px;
+                }
+                .selectSpec > form > button { 
+                    box-shadow: 3px 4px 0px 0px #8a2a21;
+                    background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+                    background-color:#c62d1f;
+                    border-radius:18px;
+                    border:1px solid #d02718;
+                    display:inline-block;
+                    cursor:pointer;
+                    color:#ffffff;
+                    font-family:Arial;
+                    font-size:13px;
+                    padding:7px 25px;
+                    text-decoration:none;
+                    text-shadow:0px 1px 0px #810e05;
+                }
+                .selectSpec > form > button:hover {
+                    background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+                    background-color:#f24437;
+                }
+                .selectSpec > form > button:active {
+                    position:relative;
+                    top:1px;
+                }
