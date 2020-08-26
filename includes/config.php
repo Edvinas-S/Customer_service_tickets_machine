@@ -20,5 +20,5 @@
 	// define admin site path
 	define('ADMIN','http://localhost/0_test/admin/');
 
-	//include('functions.php');
+	include('functions.php');
 ?>
