@@ -7,7 +7,6 @@ vertical-align: top;
 box-sizing: border-box;
 font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 }
-/* ***** INDEX.PHP STYLE ***** */
     .bodySelect {
         background-image: url(../img/bacground.jpg);
     }
@@ -74,59 +73,3 @@ font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
                 .checkID {
                     margin-top: 20px;
                 }
-                button, .button { 
-                    box-shadow: 3px 4px 0px 0px #8a2a21;
-                    background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-                    background-color:#c62d1f;
-                    border-radius:18px;
-                    border:1px solid #d02718;
-                    display:inline-block;
-                    cursor:pointer;
-                    color:#fff;
-                    font-family:Arial;
-                    font-size:13px;
-                    padding:7px 25px;
-                    text-decoration:none;
-                    text-shadow:0px 1px 0px #810e05;
-                }
-                button:hover, .button:hover {
-                    background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-                    background-color:#f24437;
-                }
-                button:active, .button:active {
-                    position:relative;
-                    top:1px;
-                }
-/* ***** LOGIN.PHP STYLE ***** */
-        .login {
-            width: 200px;
-            background-color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-radius: 15px;
-        }
-        .login > .error > span {
-            display: block;
-            color: red;
-        }
-        .login > form {
-            width: 80%;
-            margin-left: 10%;
-            text-align: center;
-        }
-        .login > form > label {
-            display: inline-block;
-            width: 100%;
-            margin-top: 5px;
-        }
-        .login > form > input {
-            display: inline-block;
-            width: 100%;
-        }
-        .login > form > button {
-            margin-top: 30px;
-        }

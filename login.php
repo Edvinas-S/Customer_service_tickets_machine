@@ -43,7 +43,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo DIR ?>css/login.css">
+    <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
 </head>
 <body class="bodySelect">
     <div class="login">
@@ -52,8 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span><?php echo $password_err ?></span>
         </div>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <label>Username</label><br><input type="text" name="username" value="<?php echo $username; ?>"/><br>
-            <label>Password</label><br><input type="password" name="password"/><br>
+            <label>Username</label><br><input type="text" placeholder="spec1 or 2 or 3" name="username" value="<?php echo $username; ?>"/><br>
+            <label>Password</label><br><input type="password" placeholder="spec1 or 2 or 3" name="password"/><br>
             <button type="submit" name="login" >Login</button>
         </form>
     </div>

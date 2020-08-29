@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home screen</title>
     <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo DIR ?>css/index.css">
+    <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
 </head>
     <body class="bodySelect">
         <nav class="navSelect">
@@ -18,19 +19,19 @@
             <h3 class="h3Select">Please select specialist you came to:</h3>
             <div class="selectSpec">
                 <div class="inLineSelect">
-                    <form action="" method="POST"><label>Specialist-1</label><input type="hidden" name="sp1_id" value="1"><button type="submit">Wait in line</button></form>
-                    <form action="" method="POST"><input type="hidden" name="sp1_id" value="1"><button type="submit">Pick a time</button></form>
+                    <form action="<?php echo DIR ?>tickets.php" method="POST" target="_blank" rel="noopener noreferrer"><label>Specialist-1</label><input type="hidden" name="sp1_id" value="1"><button type="submit">Wait in line</button></form>
+                    <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp1_pick" value="1"><button type="submit">Pick a time</button></form>
                 </div>
                 <div class="inLineSelect">
-                    <form action="" method="POST"><label>Specialist-2</label><input type="hidden" name="sp2_id" value="2"><button type="submit">Wait in line</button></form>
-                    <form action="" method="POST"><input type="hidden" name="sp2_id" value="2"><button type="submit">Pick a time</button></form>
+                    <form action="<?php echo DIR ?>tickets.php" method="POST" target="_blank" rel="noopener noreferrer"><label>Specialist-2</label><input type="hidden" name="sp2_id" value="2"><button type="submit">Wait in line</button></form>
+                    <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp2_pick" value="2"><button type="submit">Pick a time</button></form>
                 </div>
                 <div class="inLineSelect">
-                    <form action="" method="POST"><label>Specialist-3</label><input type="hidden" name="sp3_id" value="3"><button type="submit">Wait in line</button></form>
-                    <form action="" method="POST"><input type="hidden" name="sp3_id" value="3"><button type="submit">Pick a time</button></form>
+                    <form action="<?php echo DIR ?>tickets.php" method="POST" target="_blank" rel="noopener noreferrer"><label>Specialist-3</label><input type="hidden" name="sp3_id" value="3"><button type="submit">Wait in line</button></form>
+                    <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp3_pick" value="3"><button type="submit">Pick a time</button></form>
                 </div>
                 <div class="checkID">
-                    <form action="" method="post"><input type="text" placeholder="ticket numb." size="10" maxlength="3"><input type="hidden" name="check_ID"><button type="submit">Check your ticket</button></form>
+                    <form action="<?php echo DIR ?>tickets.php" method="get" target="_blank" rel="noopener noreferrer"><input type="number" name="check_ID" placeholder="ticket" min="000000" max="99999" required><button type="submit">Check your ticket</button></form>
                 </div>
             </div>
         </main>
