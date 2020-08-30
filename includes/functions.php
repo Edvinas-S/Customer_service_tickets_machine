@@ -46,7 +46,7 @@ function login_required() {
     if(logged_in()) {	
         return true;
     } else {
-        header('Location: '. ADMIN);
+        header('Location: '. DIR .'login.php');
         exit();
     }	
 }
@@ -116,10 +116,11 @@ function cancelSerial() {
     mysqli_query($conn, $sql_1);
     $sql_2 = "DELETE FROM customers WHERE serial_number = $value;";
     mysqli_query($conn, $sql_2);
+    header("Location: http://localhost/0_test/");
+    exit();
 }
 if(isset($_POST['cancelTicket'])){
     cancelSerial();
-    header("Location: http://localhost/0_test/");
 }
 
 // CANCEL invitation
@@ -129,10 +130,11 @@ function cancelInvitation() {
     $specActive = $_POST['specActive'];
     $sql = "UPDATE specialists SET $specActive = NULL WHERE serial_number = $ticketNumber;";
     mysqli_query($conn, $sql);
+    header("Location: http://localhost/0_test/admin/index.php");
+    exit();
 }
 if(isset($_POST['cancelInvitation'])){
     cancelInvitation();
-    header("Location: http://localhost/0_test/admin/index.php");
 }
 
 // START meeting invitation
@@ -142,10 +144,11 @@ function invate() {
     $specActive = $_POST['specActive'];
     $sql = "UPDATE specialists SET $specActive = 1 WHERE serial_number = $ticketNumber;";
     mysqli_query($conn, $sql);
+    header("Location: http://localhost/0_test/admin/index.php");
+    exit();
 }
 if(isset($_POST['invate'])){
     invate();
-    header("Location: http://localhost/0_test/admin/index.php");
 }
 
 // DELETE ticket
@@ -156,12 +159,11 @@ function deleteTicket() {
     $sql_2 = "DELETE FROM customers WHERE serial_number = $ticketNumber;";
     mysqli_query($conn, $sql_1);
     mysqli_query($conn, $sql_2);
-
+    header('Location: http://localhost/0_test/admin/index.php');
+    exit();
 }
 if(isset($_POST['deleteTicket'])){
     deleteTicket();
-    header('Location: http://localhost/0_test/admin/index.php');
-    exit();
 }
 
 ?>
