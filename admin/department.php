@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
     <title>Department screen</title>
     <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo DIR ?>css/department.css">
@@ -18,7 +19,6 @@
             <tr><td>Specialist 1</td><td></td></tr>
             <tr>
                 <?php // nearest 5 customers on specialist_1
-                //echo "<tr>Specialist 1</tr>";
                     $sqlActive = "SELECT serial_number, spec_1_active FROM specialists WHERE spec_1_active IS NOT NULL;";
                     $sqlGroup = "SELECT substring_index(group_concat(spec_1 SEPARATOR '; '), '; ', 5) AS spec_1 FROM specialists WHERE spec_1 IS NOT NULL;";
                     $resultActive = mysqli_query($conn, $sqlActive);
