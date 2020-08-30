@@ -6,6 +6,11 @@ session_start();
 ?>
 
 <?php 
+// Check if the user is already logged in, if yes then redirect
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("Location:". ADMIN);
+    exit;
+}
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -28,10 +33,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     //login
-    //login($conn_db, $username, $password);
+    login($conn, $username, $password);
 
     // Close connection
-    //mysqli_close($conn_db);
+    mysqli_close($conn);
 }
 
 ?>

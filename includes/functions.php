@@ -1,9 +1,65 @@
-<?php 
+<?php
+
 // check connection
 $conn = mysqli_connect('localhost', 'root', 'mysql', 'waiting_db');
 if(!$conn){
     die( "Sorry! There seems to be a problem connecting to database.");
 };
+
+// disable MySql "Safe Updates Preference" to modify tables
+$sql = 'SET SQL_SAFE_UPDATES = 0;';
+mysqli_query($conn, $sql);
+
+// login logic
+function login($conn, $username, $password) {
+    $username = strip_tags(mysqli_real_escape_string($conn, $username));
+    $password = strip_tags(mysqli_real_escape_string($conn, $password));
+
+    $hashed_password = md5($password.$username);
+
+    // check if the user name and password combination exist in database
+    $sql = "SELECT * FROM admin WHERE account = '$username' AND password = '$hashed_password'";
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) == 1) {
+        // the username and password match,
+        // set the session
+        $_SESSION['loggedin'] = true;
+        $_SESSION['user'] = $username;
+                    
+        // direct to admin
+        header('Location:'. ADMIN);
+        exit();
+    }
+}
+
+// Authentication
+function logged_in() {
+    if($_SESSION['loggedin'] == true) {
+        return true;
+    } else {
+        return false;
+    }	
+}
+
+function login_required() {
+    if(logged_in()) {	
+        return true;
+    } else {
+        header('Location: '. ADMIN);
+        exit();
+    }	
+}
+
+// logout logic
+function logout(){
+    unset($_SESSION['loggedin']);
+    header('Location: ' . DIR);
+    exit();
+}
+if(isset($_GET['logout'])){
+    logout();
+}
 
 // ADD customer to Specialist_1
 function addSpec_1() {
@@ -63,7 +119,7 @@ function cancelSerial() {
 }
 if(isset($_POST['deleteTicket'])){
     cancelSerial();
-    header("Location: http://localhost/0_test");
+    header("Location: http://localhost/0_test/");
 }
 
 ?>

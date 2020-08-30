@@ -20,20 +20,24 @@
             <div class="selectSpec">
                 <div class="inLineSelect">
                     <form action="<?php echo DIR ?>tickets.php" method="POST" target="_blank" rel="noopener noreferrer"><label>Specialist-1</label><input type="hidden" name="sp1_id" value="1"><button type="submit">Wait in line</button></form>
-                    <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp1_pick" value="1"><button type="submit">Pick a time</button></form>
+                    <!-- <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp1_pick" value="1"><button type="submit">Pick a time</button></form> -->
                 </div>
                 <div class="inLineSelect">
                     <form action="<?php echo DIR ?>tickets.php" method="POST" target="_blank" rel="noopener noreferrer"><label>Specialist-2</label><input type="hidden" name="sp2_id" value="2"><button type="submit">Wait in line</button></form>
-                    <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp2_pick" value="2"><button type="submit">Pick a time</button></form>
+                    <!-- <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp2_pick" value="2"><button type="submit">Pick a time</button></form> -->
                 </div>
                 <div class="inLineSelect">
                     <form action="<?php echo DIR ?>tickets.php" method="POST" target="_blank" rel="noopener noreferrer"><label>Specialist-3</label><input type="hidden" name="sp3_id" value="3"><button type="submit">Wait in line</button></form>
-                    <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp3_pick" value="3"><button type="submit">Pick a time</button></form>
+                    <!-- <form action="<?php echo DIR ?>" method="POST" target="_blank" rel="noopener noreferrer"><input type="hidden" name="sp3_pick" value="3"><button type="submit">Pick a time</button></form> -->
                 </div>
                 <div class="checkID">
                     <form action="<?php echo DIR ?>tickets.php" method="get" target="_blank" rel="noopener noreferrer"><input type="number" name="check_ID" placeholder="ticket" min="000000" max="99999" required><button type="submit">Check your ticket</button></form>
                 </div>
             </div>
         </main>
+    <?php
+    // Close connection
+    mysqli_close($conn);
+    ?>
     </body>
 </html>

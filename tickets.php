@@ -12,7 +12,39 @@
 </head>
     <body> 
         <?php 
-        // show new ticket
+        // get waiting line count
+        if(isset($_POST['sp1_id'])){ 
+            $sqlWaiting = "SELECT Count(spec_1) AS waiting FROM specialists;";
+        };
+        if(isset($_POST['sp2_id'])){ 
+            $sqlWaiting = "SELECT Count(spec_2) AS waiting FROM specialists;";
+        };
+        if(isset($_POST['sp3_id'])){ 
+            $sqlWaiting = "SELECT Count(spec_3) AS waiting FROM specialists;";
+        };
+        if($_SERVER['REQUEST_METHOD']=='GET') {
+            $serialEntered = $_GET['check_ID'];
+            $sql_ID = "SELECT spec_ID FROM customers WHERE serial_number = $serialEntered;";
+            $result_ID = mysqli_query($conn, $sql_ID);
+            if (mysqli_num_rows($result_ID) == 0) {
+                header('Location: '. DIR);
+                exit();
+            } else {
+                if (mysqli_num_rows($result_ID) > 0) {
+                    while($row = mysqli_fetch_assoc($result_ID)) {
+                        $spec_ID = $row['spec_ID'];
+                        $sqlWaiting = "SELECT Count(spec_$spec_ID) AS waiting FROM specialists;";
+                    }
+                }
+            }
+        };
+        $resultWaiting = mysqli_query($conn, $sqlWaiting);
+            if (mysqli_num_rows($resultWaiting) > 0) {
+                while($row = mysqli_fetch_assoc($resultWaiting)) {
+                    $waiting = $row['waiting'];
+                }
+            }
+            // show new ticket
             if($_SERVER['REQUEST_METHOD']=='POST') {
             if(isset($_POST['sp1_id'])){ 
                 $sql = "SELECT spec_ID, MAX(serial_number) AS serial FROM customers WHERE Spec_ID=1;";
@@ -41,6 +73,7 @@
                         </tr>
                     </table>";
                 }
+                echo "<p class='waiting'>In front of you to this specialist are waiting:".($waiting - 1)."</p>";
             } else {
                 echo "<span>ERROR</span>";
             }
@@ -68,11 +101,16 @@
                         </tr>
                     </table>";
                 }
+                echo "<p class='waiting'>In front of you to this specialist are waiting:".$waiting."</p>";
             } else {
                 echo "<span>ERROR ticket does not exist<br>
                     <a class='button' href=".DIR.">Back</a></span>";
             }
         }
         ?>
+    <?php
+    // Close connection
+    mysqli_close($conn);
+    ?>
     </body>
 </html>
