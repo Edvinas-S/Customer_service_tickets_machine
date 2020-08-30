@@ -1,5 +1,5 @@
 # Ticket machine with PHP and MySQL
-###### *not fylly working ("pic a time" does not work (for now i hope :))
+###### *not fully working ("pic a time" does not work (for now i hope :))
 
 ### Features
 AS Customer:
