@@ -96,12 +96,12 @@
                             <td>". $row["spec_ID"] ."</td>
                             <td>". $row["serial_number"] ."</td>
                             <td>
-                                <form action='includes/functions.php' method='post'><button type='submit' name='deleteTicket'>CANCEL</button><input type='hidden' name='serial' value='".$row["serial_number"]."'></form>
+                                <form action='includes/functions.php' method='post'><button type='submit' name='cancelTicket'>CANCEL</button><input type='hidden' name='serial' value='".$row["serial_number"]."'></form>
                             </td>
                         </tr>
                     </table>";
                 }
-                echo "<p class='waiting'>In front of you to this specialist are waiting:".$waiting."</p>";
+                echo "<p class='waiting'>In front of you to this specialist are waiting:".($waiting - 1)."</p>";
             } else {
                 echo "<span>ERROR ticket does not exist<br>
                     <a class='button' href=".DIR.">Back</a></span>";

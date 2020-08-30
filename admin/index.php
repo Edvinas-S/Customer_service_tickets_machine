@@ -15,10 +15,36 @@ login_required()
     <link rel="stylesheet" href="<?php echo DIR ?>css/adminIndex.css">
     <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
 </head>
-    <body> 
-        <a class="button logout" href="<?php echo ADMIN; ?>?logout">Logout</a><br>
+    <body>
+        <nav>
+            <a class="button" href="department.php" target="_blank" rel="noopener noreferrer">Department screen</a>
+            <a class="button" href="<?php echo ADMIN; ?>?logout">Logout</a>
+        </nav> 
         <h1>Hello, <?php echo $_SESSION['user'] ?></h1>
         <main>
+            <?php
+                // see active customer
+                if($_SESSION['user'] == 'spec1') {
+                    $specActive = 'spec_1_active';
+                };
+                if($_SESSION['user'] == 'spec2') {
+                    $specActive = 'spec_2_active';
+                };
+                if($_SESSION['user'] == 'spec3') {
+                    $specActive = 'spec_3_active';
+                };
+                $sql = "SELECT serial_number, $specActive FROM specialists WHERE $specActive IS NOT NULL;";
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                    $displayButtons = 'display: none;';
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $isActive = $row['serial_number'];
+                    }
+                } else {
+                    $displayButtons = "";
+                    $isActive = 'none';
+                }
+            ?>
             <table>
                 <tr>
                     <th>Ticket serial number:</th>
@@ -28,12 +54,15 @@ login_required()
                     // print to html all customers to this specialist 
                     if($_SESSION['user'] == 'spec1') {
                         $specialist = 'spec_1';
+                        $specActive = 'spec_1_active';
                     };
                     if($_SESSION['user'] == 'spec2') {
                         $specialist = 'spec_2';
+                        $specActive = 'spec_2_active';
                     };
                     if($_SESSION['user'] == 'spec3') {
                         $specialist = 'spec_3';
+                        $specActive = 'spec_3_active';
                     };
                     $sql = "SELECT $specialist FROM specialists WHERE $specialist IS NOT NULL;";
                     $result = mysqli_query($conn, $sql);
@@ -42,7 +71,9 @@ login_required()
                             echo "<tr>
                                     <td>" . $row["$specialist"] ."</td>
                                     <td>
-                                        <form action='' method='post'><input class='button' type='button' value='To invite'><input class='button' type='button' value='Cancel invitation'><input class='button' type='button' value='Complete'></form>
+                                        <form action='../includes/functions.php' method='post'><input style='$displayButtons' class='button' type='submit' name='invate' value='Invite'><input class='button' type='submit' name='cancelInvitation' value='Cancel invitation'><input class='button' type='submit' name='deleteTicket' value='Complete'>
+                                            <input type='hidden' name='ticketNumber' value='". $row["$specialist"] ."'>
+                                            <input type='hidden' name='specActive' value='". $specActive ."'></form>
                                     </td>
                                 </tr>";
                         }
@@ -54,6 +85,7 @@ login_required()
                     }
                 ?>
             </table>
+            <h3>Active meeting with ticket number: &nbsp; <?php echo $isActive ?></h3>
         </main>
     </body>
 </html>

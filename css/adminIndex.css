@@ -9,13 +9,19 @@ font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
     .bodySelect {
         background-color: beige;
     }
-        h1 {
-          text-align: center;
-          margin: 30px 30px;
+        nav {
+            display: block;
+            width: 100%;
+            height: 40px;
         }
-        .logout {
+        nav > a {
             margin: 10px;
             float: right;
+        }
+        h1 {
+            display: block;
+            text-align: center;
+            margin: 30px 30px;
         }
         main {
             position: absolute;
@@ -34,3 +40,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
             tr:nth-child(even) {
                 background-color: #bebdbd;
               }
+        h3 {
+            text-align: center;
+            margin-top: 10px;
+        }
