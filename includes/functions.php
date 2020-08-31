@@ -1,4 +1,8 @@
 <?php
+// define site path
+define('APP_ROOT','http://localhost/Customer_service_tickets_machine/');
+
+define('ADMIN','http://localhost/Customer_service_tickets_machine/admin/');
 
 // check connection
 $conn = mysqli_connect('localhost', 'root', 'mysql', 'waiting_db');
@@ -46,7 +50,7 @@ function login_required() {
     if(logged_in()) {	
         return true;
     } else {
-        header('Location: '. DIR .'login.php');
+        header('Location: '. APP_ROOT .'login.php');
         exit();
     }	
 }
@@ -54,7 +58,7 @@ function login_required() {
 // logout logic
 function logout(){
     unset($_SESSION['loggedin']);
-    header('Location: ' . DIR);
+    header('Location: ' . APP_ROOT);
     exit();
 }
 if(isset($_GET['logout'])){
@@ -116,7 +120,7 @@ function cancelSerial() {
     mysqli_query($conn, $sql_1);
     $sql_2 = "DELETE FROM customers WHERE serial_number = $value;";
     mysqli_query($conn, $sql_2);
-    header("Location: ". DIR);
+    header("Location: ". APP_ROOT);
     exit();
 }
 if(isset($_POST['cancelTicket'])){
@@ -126,10 +130,12 @@ if(isset($_POST['cancelTicket'])){
 // CANCEL invitation
 function cancelInvitation() {
     global $conn;
+    global $thisImplode;
     $ticketNumber = $_POST['ticketNumber'];
     $specActive = $_POST['specActive'];
     $sql = "UPDATE specialists SET $specActive = NULL WHERE serial_number = $ticketNumber;";
     mysqli_query($conn, $sql);
+    var_dump($thisImplode);
     header("Location: ". ADMIN);
     exit();
 }

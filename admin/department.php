@@ -9,12 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="5">
     <title>Department screen</title>
-    <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/department.css">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
+    <link rel="shortcut icon" href="<?php echo APP_ROOT ?>img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/department.css">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/button.css">
 </head>
     <body>
-        <h1>Nearest 5 customers by ticket numbers</h1>
+        <nav>
+            <input type="button" class="button" value="X" onclick="self.close()">
+            <h1>Nearest 5 customers by ticket numbers</h1>
+        </nav>
         <table>
             <tr><td>Specialist 1</td><td></td></tr>
             <tr>

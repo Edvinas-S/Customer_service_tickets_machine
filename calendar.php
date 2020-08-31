@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar</title>
-    <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/calendar.css">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
+    <link rel="shortcut icon" href="<?php echo APP_ROOT ?>img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/calendar.css">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/button.css">
 </head>
     <body>
+        <input type="button" class="button" value="X" onclick="self.close()">
         <?php
         //This gets today's date 
         $date = time();

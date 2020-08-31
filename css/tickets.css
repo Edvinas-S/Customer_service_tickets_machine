@@ -7,6 +7,10 @@ body * {
     box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 }
+    .button {
+        float: right;
+        margin: 30px;
+    }
     table {
         position: absolute;
         top: 40%;

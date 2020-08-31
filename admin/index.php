@@ -11,9 +11,9 @@ login_required()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Specialist page</title>
-    <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/adminIndex.css">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
+    <link rel="shortcut icon" href="<?php echo APP_ROOT ?>img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/adminIndex.css">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/button.css">
 </head>
     <body>
         <nav>

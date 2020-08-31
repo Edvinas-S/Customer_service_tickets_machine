@@ -24,7 +24,8 @@ background-color: beige;
             display: block;
             width: 100%;
             text-align: center;
-            margin: 30px 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
             table {
                 display: block;

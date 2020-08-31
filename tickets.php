@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your ticket</title>
-    <link rel="shortcut icon" href="<?php echo DIR ?>img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/tickets.css">
-    <link rel="stylesheet" href="<?php echo DIR ?>css/button.css">
+    <link rel="shortcut icon" href="<?php echo APP_ROOT ?>img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/tickets.css">
+    <link rel="stylesheet" href="<?php echo APP_ROOT ?>css/button.css">
 </head>
-    <body> 
+    <body>
+        <input type="button" class="button" value="X" onclick="self.close()">        
         <?php 
         // get waiting line count
         if(isset($_POST['sp1_id'])){ 
@@ -27,7 +28,7 @@
             $sql_ID = "SELECT spec_ID FROM customers WHERE serial_number = $serialEntered;";
             $result_ID = mysqli_query($conn, $sql_ID);
             if (mysqli_num_rows($result_ID) == 0) {
-                header('Location: '. DIR);
+                header('Location: '. APP_ROOT);
                 exit();
             } else {
                 if (mysqli_num_rows($result_ID) > 0) {
@@ -104,7 +105,7 @@
                 echo "<p class='waiting'>In front of you to this specialist are waiting:".($waiting - 1)."</p>";
             } else {
                 echo "<span>ERROR ticket does not exist<br>
-                    <a class='button' href=".DIR.">Back</a></span>";
+                    <a class='button' href=".APP_ROOT.">Back</a></span>";
             }
         }
         ?>

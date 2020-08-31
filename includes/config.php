@@ -16,9 +16,8 @@
 	};
 
 	// define site path
-	define('DIR','http://localhost/Customer_service_tickets_machine/');
+	define('APP_ROOT','http://localhost/Customer_service_tickets_machine/');
 
-	// define admin site path
 	define('ADMIN','http://localhost/Customer_service_tickets_machine/admin/');
 
 	include('functions.php');

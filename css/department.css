@@ -7,9 +7,19 @@ box-sizing: border-box;
 font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 background-color: darkcyan;
 }
+    nav {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
     h1 {
-       text-align: center; 
-       margin: 20px;
+        text-align: center;
+    }
+    input {
+        float: right;
+        margin-right: 30px;
     }
     table {
         border: 1px solid black;
